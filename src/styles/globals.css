@@ -1,0 +1,27 @@
+@import "tailwindcss/preflight";
+@tailwind utilities;
+
+body {
+    background-color: #000;
+    color: #fff;
+    background-image: url('/stars-bg.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+@font-face {
+    font-family: 'Star Wars';
+    src: url('/fonts/Starjedi.ttf') format('truetype');
+}
+
+.star-wars-font {
+    font-family: 'Star Wars', sans-serif;
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+}

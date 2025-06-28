@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  frontend:
+    image: sw-fe:1
+    build: ./
+    container_name: sw-fe
+    hostname: sw-fe
+    restart: always
+    ports:
+      - '3020:3020'
+    env_file: .env

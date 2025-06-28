@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Star Wars Frontend
 
-## Getting Started
+Frontend responsivo con Next.js y Tailwind para visualizar datos del universo Star Wars. Conecta a la API backend para mostrar personajes, películas, naves y planetas. Permite agregar favoritos y comparar ítems visualmente.
 
-First, run the development server:
+## Características Principales
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- 🚀 **Next.js App Router**: Navegación optimizada y basada en archivos.
+- 🎨 **Diseño Star Wars**: Estilo visual temático con efectos y animaciones.
+- ⭐ **Sistema de Favoritos**: Agrega y visualiza ítems marcados como favoritos.
+- ⚖️ **Comparación Visual**: Compara personajes, naves, planetas o películas.
+- 🧑‍🚀 **Autenticación con Google**: Inicia sesión para guardar tus favoritos.
+- 📱 **Responsive**: Interfaz adaptada a dispositivos móviles y escritorio.
+
+## Tecnologías
+
+- **Frontend**: Next.js 15 (App Router)
+- **Estilos**: Tailwind CSS
+- **Animaciones**: Framer Motion
+- **Autenticación**: NextAuth (Google Provider)
+- **Consumo API**: Fetch desde el backend NestJS
+
+## Instalación
+
+1. **Clonar repositorio**:
+
+   ```bash
+   git clone https://github.com/tu-usuario/star-wars-frontend.git
+   ```
+
+2. **Instalar dependencias**:
+
+   ```bash
+   npm install
+   ```
+
+3. **Configurar entorno (.env.local)**:
+
+   ```bash
+   cp .env.example .env.local
+   ```
+
+## Variables de Entorno
+
+```env
+NEXT_PUBLIC_API_BASE_URL=http://localhost:3000
+NEXTAUTH_URL=http://localhost:3020
+NEXTAUTH_SECRET=tu_secreto
+GOOGLE_CLIENT_ID=xxxxxxxx.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=xxxxxxxx
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Desarrollo
+npm run dev
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Producción
+npm run build
+npm run start
 
-## Learn More
+# Lint
+npm run lint
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Estructura del Proyecto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+├── app/                   # Rutas App Router (favoritos, comparación, recursos)
+│   └── [category]/[id]/   # Vista detalle por tipo e ID
+├── components/            # UI modularizada (Header, Grid, Detail, etc.)
+├── lib/                   # Animaciones y configuración
+├── types/                 # Tipos TypeScript
+├── utils/                 # Formateo, helpers de recursos, parseadores
+└── styles/                # Estilos globales
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Funcionalidades
 
-## Deploy on Vercel
+- 🧭 Navegación por categoría: `/people`, `/films`, `/starships`, `/planets`
+- 🔍 Vista detallada de cada recurso
+- ✅ Botón de favoritos por ítem
+- 🧠 Detección de login para guardar favoritos
+- 🧮 Comparador visual en `/compare/[category]`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Favoritos
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Al iniciar sesión con Google, puedes marcar recursos como favoritos. Estos se guardan en el backend y se visualizan en la ruta:
+
+```
+/favorites
+```
+
+## Comparador
+
+Selecciona recursos para comparar y accede a:
+
+```
+/compare/[category]?ids=1,2,3
+```
+
+Visualiza los atributos comparados en una grilla de 3 columnas por fila.
+
+---
+
+🖖 Que la fuerza te acompañe.
