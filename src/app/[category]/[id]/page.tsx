@@ -3,6 +3,7 @@ import CategoryDetail from '@/components/category/CategoryDetail';
 import { fetchResourceById, fetchAllCategoryItemParams } from '@/services/starWars.service';
 
 export const dynamic = 'force-dynamic';
+export const revalidate = 60;
 
 interface Params {
     category: string;
